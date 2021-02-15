@@ -1,5 +1,5 @@
 <template>
-  <div class="recipes-new">
+  <div class="posts-new">
     <form v-on:submit.prevent="createPost()">
       <h1>Create a Post</h1>
       <ul>
