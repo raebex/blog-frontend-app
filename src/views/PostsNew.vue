@@ -9,17 +9,17 @@
       </ul>
       <div class="form-group">
         <label>Title:</label>
-        <input type="text" class="form-control" v-model="title">
+        <input type="text" class="form-control" v-model="title" />
       </div>
       <div class="form-group">
         <label>Body:</label>
-        <input type="text" class="form-control" v-model="body">
+        <input type="text" class="form-control" v-model="body" />
       </div>
       <div class="form-group">
         <label>Image URL:</label>
-        <input type="text" class="form-control" v-model="imageUrl">
+        <input type="text" class="form-control" v-model="imageUrl" />
       </div>
-      <input type="submit" class="btn btn-primary" value="Create">
+      <input type="submit" class="btn btn-primary" value="Create" />
     </form>
   </div>
 </template>
@@ -52,7 +52,7 @@ export default {
         .catch(error => {
           this.errors = error.response.data.errors;
         });
-    }
-  }
+    },
+  },
 };
 </script>
