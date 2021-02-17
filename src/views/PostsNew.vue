@@ -52,6 +52,7 @@ export default {
         .then(response => {
           console.log(response.data);
           this.$router.push("/posts");
+          this.$parent.flashMessage = "Post successfully created!";
         })
         .catch(error => {
           this.status = error.response.status;

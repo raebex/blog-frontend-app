@@ -44,6 +44,7 @@ export default {
           localStorage.setItem("jwt", response.data.jwt);
           localStorage.setItem("user_id", response.data.user_id);
           this.$router.push("/");
+          this.$parent.flashMessage = "Welcome!";
         })
         .catch(error => {
           console.log(error.response);
