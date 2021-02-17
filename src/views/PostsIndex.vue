@@ -7,6 +7,7 @@
         <img :src="post.image" :alt="post.name" />
       </router-link>
       <p>{{ post.body }}</p>
+      <p v-if="$parent.getUserId() == post.user_id">Your post!</p>
     </div>
   </div>
 </template>

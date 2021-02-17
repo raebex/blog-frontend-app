@@ -7,6 +7,7 @@
           {{ error }}
         </li>
       </ul>
+      <img v-if="status" :src="`https://http.cat/${status}`" :alt="`error cat`" />
       <div class="form-group">
         <label>Title:</label>
         <input type="text" class="form-control" v-model="title" />
@@ -14,6 +15,8 @@
       <div class="form-group">
         <label>Body:</label>
         <input type="text" class="form-control" v-model="body" />
+        <br />
+        <small>{{ 140 - body.length }} characters left</small>
       </div>
       <div class="form-group">
         <label>Image URL:</label>
@@ -34,6 +37,7 @@ export default {
       body: "",
       imageUrl: "",
       errors: [],
+      status: "",
     };
   },
   methods: {
@@ -50,6 +54,7 @@ export default {
           this.$router.push("/posts");
         })
         .catch(error => {
+          this.status = error.response.status;
           this.errors = error.response.data.errors;
         });
     },

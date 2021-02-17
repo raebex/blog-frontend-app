@@ -3,8 +3,9 @@
     <h1>{{ post.title }}</h1>
     <img :src="post.image" :alt="post.title" />
     <p>{{ post.body }}</p>
-    <router-link :to="`/posts/${post.id}/edit`">Edit</router-link>
-    <button v-on:click="destroyPost()">Destroy</button>
+
+    <router-link v-if="$parent.getUserId() == post.user_id" :to="`/posts/${post.id}/edit`">Edit</router-link>
+    <button v-if="$parent.getUserId() == post.user_id" v-on:click="destroyPost()">Destroy</button>
     {{ destroySuccess }}
   </div>
 </template>
