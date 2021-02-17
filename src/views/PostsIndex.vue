@@ -7,6 +7,7 @@
         <img :src="post.image" :alt="post.name" />
       </router-link>
       <p>{{ post.body }}</p>
+      <p>Created {{ formattedTime(post.created_at) }}</p>
       <p v-if="$parent.getUserId() == post.user_id">Your post!</p>
     </div>
   </div>
@@ -14,6 +15,8 @@
 
 <script>
 import axios from "axios";
+import moment from "moment";
+
 export default {
   data: function() {
     return {
@@ -24,6 +27,11 @@ export default {
     axios.get("/api/posts").then(response => {
       this.posts = response.data;
     });
+  },
+  methods: {
+    formattedTime: function(date) {
+      return moment(date).fromNow();
+    },
   },
 };
 </script>
